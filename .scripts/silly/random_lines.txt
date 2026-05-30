@@ -1,0 +1,15 @@
+load module kxz1151/.file/file.xzgh | pipefile makefile make clean > log.output.txt
+load module progress check for above modules [##########] 100%
+set environment variables........ complete
+configure path........ complete
+segmentation fault error, attempting fix . . . . . .;;
+pinging https://localhost:8040/index/folders/documents/system_docs/markdown/look_busy.md
+pinging https://docs.google.com/document/89234hf0230chf02
+connecting to email established through gmail:'mead05cameron@gmail.com'
+authenticase password : ************
+install script progress [#######   ] 71% !!! interrupted !!!
+network connectivity test . . . . .complete...results-- 5.885MiB DOWN   2.111 MiB UP
+random access memory check ... remaining memory 28.6 GB
+verifying memory from address #FA1A to address #FF1A
+cd -t /home/cameron/softdev/personal/fake/super/long/path/for/the/purposes/of/file/tools/.secret/looking/dev/
+
