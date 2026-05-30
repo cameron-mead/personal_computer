@@ -1,0 +1,332 @@
+#
+# sway config file
+# authored by Cameron Mead
+#
+
+# modifier keybinds
+    
+    # THIS COMMENT IS ABOVE FOR A REASON
+    # DO NOT PUT COMMENTS ON THE SAME LINE AS DECLARATIONS
+    #
+    # windows key
+    set $mod Mod4
+
+    set $shift Shift
+    set $ctrl Ctrl
+    set $alt Mod1
+    set $copilot XF86Assistant
+    set $volume_mute XF86AudioMute
+    set $volume_down XF86AudioLowerVolume
+    set $volume_up XF86AudioRaiseVolume
+    set $mic_mute XF86AudioMicMute
+    set $play_pause XF86AudioPlay
+    set $brightness_down XF86MonBrightnessDown
+    set $brightness_up XF86MonBrightnessUp
+    set $prt_sc Print
+    set $home Home
+    set $end End
+    set $insert Insert
+    set $delete Delete
+    set $left Left
+    set $right Right
+    set $up Up
+    set $down Down
+
+# trackpad gestures
+
+    # note : 
+        # button1 : left click
+        # button2 : middle click
+        # button3 : right click
+
+    # swipe with 4 fingers for next workspace
+    bindgesture --exact swipe:4:right workspace next
+    # swipe with 3, 4, 5 fingers for prev workspace
+    bindgesture --exact swipe:4:left workspace prev
+
+
+# general keybinds
+
+    # take selection screenshot and copy to clipboard
+    bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy;
+    # take selection screenshot, copy to clipboard, and save to screenshots directory
+    bindsym $mod+Shift+p exec sh -c 'FILE=/home/cameron/documents/images/screenshots/$(exec sh /home/cameron/.scripts/generate_screenshot_filename.sh).png; grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE"' 
+    # take full screen screenshot and copy to clipboard
+    bindsym $mod+$ctrl+p exec grim - | wl-copy;
+    # take full screenshot, copy to clipboard, and save to screenshots directory
+    bindsym $mod+$ctrl+Shift+p exec sh -c 'FILE=/home/cameron/documents/images/screenshots/$(exec sh /home/cameron/.scripts/generate_screenshot_filename.sh).png; grim "$FILE" && wl-copy < "$FILE"'
+
+    # decrease screen brightness
+    bindsym $brightness_down exec brightnessctl set 10%-
+    # increase screen brightness
+    bindsym $brightness_up exec brightnessctl set +10%
+
+    # decrease speaker/headphone volume
+    bindsym $volume_down exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; exec wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 0.05-; exec pkill -SIGRTMIN+1 i3blocks
+    # increase speaker/headphone volume
+    bindsym $volume_up exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; exec wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 0.05+; exec pkill -SIGRTMIN+1 i3blocks
+    # mute or unmute speaker/headphone volume
+    bindsym $volume_mute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; exec pkill -SIGRTMIN+1 i3blocks
+
+    # get network info
+    bindsym $mod+n exec /home/cameron/.scripts/settings/network/get_network_info.sh
+    # open network configuration
+    bindsym $mod+$shift+n exec /home/cameron/.scripts/settings/network/select_network.sh
+
+    # open volume output control, and ensure it's floating
+    bindsym $mod+v exec pavucontrol 
+    for_window [app_id="pavucontrol"] floating enable
+    for_window [app_id="pavucontrol"] resize set 800 600
+
+    # manually sleep computer
+    bindsym $mod+escape exec swaylock -f -c 000000
+
+    # open general settings menu
+    bindsym $mod+tab exec /home/cameron/.scripts/settings/settings.sh
+
+
+    # alternate mouse clicks in case of loss of trackpad
+        # left click   : alt + left arrow
+        # right click  : alt + right arrow
+        # middle click : alt + up arrow
+
+    # alternate left click
+    bindsym --no-repeat $alt+Left seat * cursor press button1
+    bindsym --no-repeat --release $alt+Left seat * cursor release button1
+    # alternate right click
+    bindsym --no-repeat $alt+Right seat * cursor press button3
+    bindsym --no-repeat --release $alt+Right seat * cursor release button3
+    # alternate middle click
+    bindsym --no-repeat $alt+Up seat * cursor press button2
+    bindsym --no-repeat --release $alt+Up seat * cursor release button2
+
+
+# terminal
+    
+    # set terminal
+    set $term alacritty
+    
+    # normal terminal
+    bindsym $mod+Return exec $term
+
+    # floating terminal
+    bindsym $mod+Shift+Return exec $term --class floating-term,floating-term
+
+    for_window [app_id="floating-term"] \
+    floating enable, \
+    resize set 900 600, \
+    move position center
+
+# launcher
+
+    # set launcher
+    set $menu bemenu-run
+
+    # start launcher
+    bindsym $mod+d exec $menu
+
+# browser
+
+    # set browser
+    set $browser firefox
+
+    # open browser
+    bindsym $mod+backslash exec $browser
+
+
+
+# sway management
+
+    # Reload sway
+    bindsym $mod+Shift+c reload
+
+# window management
+
+    # kill focused window
+    bindsym $mod+Shift+q kill
+
+    # change focus
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    bindgesture swipe:3:left focus left
+    bindgesture swipe:3:down focus down
+    bindgesture swipe:3:up focus up
+    bindgesture swipe:3:right focus right
+
+    # move window
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+    
+    # window modification mode
+    floating_modifier $mod normal
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+
+
+# workspace management
+
+    # switch to next workspace
+    bindsym $mod+F2 workspace next
+    #switch to previous workspace
+    bindsym $mod+F1 workspace prev
+
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+
+    
+
+# Scratchpad
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+
+
+# Resizing containers
+
+bindsym $mod+r mode "move/resize"
+mode "move/resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    # use wasd to move windows around
+    # mostly useful for floating windows
+    bindsym a move left
+    bindsym s move down
+    bindsym w move up
+    bindsym d move right
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# snap window to corner
+bindsym $mod+Shift+r floating enable, resize set 600, move position 1320 -45, move scratchpad, scratchpad show
+
+# basic configuration
+
+    # cursor
+    seat seat0 xcursor_theme Future-dark-cursors 16
+    
+    # proper idle behavior and login
+    bindswitch lid:on exec swaylock -f -c 000000
+
+    # edge borders
+    hide_edge_borders both
+
+    # Status Bar
+
+    bar {
+        position top
+
+        # When the status_command prints a new line to stdout, swaybar updates.
+        
+        status_command i3blocks -c /home/cameron/.config/sway/bar/i3blocks.conf
+        
+        # disable ability for apps to add icons to bar
+        tray_output none
+
+        pango_markup enabled 
+        colors {
+            statusline #FFFFFF
+            background #000000
+            #border, background, text
+            inactive_workspace #000000 #000000 #FFFFFF
+            focused_workspace #888888 #000000 #FFFFFF
+        }
+    }
+
+    # window colors
+    client.focused #444444 #444444 #FFFFFF
+    client.unfocused #222222 #222222 #FFFFFF
+
+    # set background to variable stored in file
+    exec_always sh -c 'swaymsg "output * bg $(cat ~/.config/sway/resources/background_color) solid_color"'
+
+    #Make all yad windows float
+    for_window [app_id="yad"] floating enable
+
+    # sound config
+    exec /home/cameron/.scripts/start_sound.sh
+
+    # low battery notification script
+    exec /home/cameron/.scripts/battery_low.sh &
+
+    # fix full screen weirdness with jellyfin desktop
+    for_window [app_id="org.jellyfin.JellyfinDesktop"] fullscreen disable
+
+    # disable touchscreen
+    input "1267:16847:ELAN900C:00_04F3:41CF" {
+        events disabled
+    }
+
+
+# other stuff
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
