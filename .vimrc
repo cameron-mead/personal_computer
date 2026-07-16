@@ -13,3 +13,4 @@ set smartindent
 set softtabstop=4
 colorscheme cwmidnight
 syntax on
+filetype plugin indent on

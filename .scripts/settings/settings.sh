@@ -1,6 +1,7 @@
 #!/bin/bash
 
 selection=$(yad \
+  --title="settings" \
   --width=500 \
   --height=300 \
   --button="cancel":1 \
@@ -18,6 +19,10 @@ selection=$(yad \
   \
   "1000" "battery" "1000" \
     "1001:1000" "toggle charge control" "1001" \
+  \
+  "10000" "vpn" "10000" \
+    "10001:10000" "start vpn" "10001" \
+    "10002:10000" "stop vpn" "10002" \
   )
 
 if [[ $? -eq 1 ]]; then
@@ -37,11 +42,29 @@ case $selection in
 # battery
 "1000|")
     yad \
+    --width=200 --height=100 \
+    --title="battery" \
     --button="dismiss":0 \
     --text="$(/home/cameron/.scripts/settings/battery/get_battery_info.sh)"
     ;;
 "1001|")
     /home/cameron/.scripts/settings/battery/toggle_charge_control.sh
     ;;
+
+# vpn
+"10000|")
+    yad \
+    --width=200 --height=100 \
+    --title="vpn" \
+    --button="dismiss":0 \
+    --text="$(/home/cameron/.scripts/settings/vpn/status.sh)"
+    ;;
+"10001|")
+    /home/cameron/.scripts/settings/vpn/start.sh
+    ;;
+"10002|")
+    /home/cameron/.scripts/settings/vpn/stop.sh
+    ;;
+    
 
 esac
