@@ -70,6 +70,7 @@ alias minecraft='/home/cameron/.minecraft/launcher/minecraft-launcher'
 alias spotify='flatpak run com.spotify.Client;exit'
 alias media='/home/cameron/.scripts/media/play_media.sh & exit'
 alias jellyfin='/home/cameron/packages/apps/JellyfinDesktop & exit'
+alias curseforge='/home/cameron/packages/apps/curseforge-latest-linux.AppImage'
 #other
 alias monty_python='/home/cameron/.scripts/silly/monty_python.sh;reset_background'
 alias fish='/home/cameron/.scripts/silly/fish.sh'

@@ -17,12 +17,16 @@ selection=$(yad \
     "101:100" "network info" "101" \
     "102:100" "list networks" "102" \
   \
-  "1000" "battery" "1000" \
-    "1001:1000" "toggle charge control" "1001" \
+  "200" "battery" "200" \
+    "201:200" "toggle charge control" "201" \
   \
-  "10000" "vpn" "10000" \
-    "10001:10000" "start vpn" "10001" \
-    "10002:10000" "stop vpn" "10002" \
+  "300" "vpn" "300" \
+    "301:300" "start vpn" "301" \
+    "302:300" "stop vpn" "302" \
+  \
+  "400" "memory" "400" \
+    "401:400" "memory usage" "401" \
+
   )
 
 if [[ $? -eq 1 ]]; then
@@ -40,30 +44,34 @@ case $selection in
     ;;
 
 # battery
-"1000|")
+"200|")
     yad \
     --width=200 --height=100 \
     --title="battery" \
     --button="dismiss":0 \
     --text="$(/home/cameron/.scripts/settings/battery/get_battery_info.sh)"
     ;;
-"1001|")
+"201|")
     /home/cameron/.scripts/settings/battery/toggle_charge_control.sh
     ;;
 
 # vpn
-"10000|")
+"300|")
     yad \
     --width=200 --height=100 \
     --title="vpn" \
     --button="dismiss":0 \
     --text="$(/home/cameron/.scripts/settings/vpn/status.sh)"
     ;;
-"10001|")
+"301|")
     /home/cameron/.scripts/settings/vpn/start.sh
     ;;
-"10002|")
+"302|")
     /home/cameron/.scripts/settings/vpn/stop.sh
+    ;;
+# memory
+"400|" | "401|")
+    /home/cameron/.scripts/settings/memory/usage.sh
     ;;
     
 
