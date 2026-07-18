@@ -301,7 +301,7 @@ bindsym $mod+Shift+r floating enable, resize set 600, move position 1320 -45, mo
     for_window [app_id="yad"] floating enable
     
     # set widgets to borderless and sticky
-    for_window [title="(?i).*widget.*"] border pixel 0, sticky enable, floating enable
+    #for_window [title="(?i).*widget.*"] border pixel 0, sticky enable, floating enable
 
     for_window [title="memory_widget"] move position 0 0 
 
