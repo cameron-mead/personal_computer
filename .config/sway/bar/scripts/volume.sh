@@ -29,4 +29,11 @@ if echo "$output" | grep -q MUTED; then
     bar="[        MUTE         ]"
 fi
 
-printf "%s\n" "$bar"
+output=$(pactl list sinks | grep -A 2 "Name: $(pactl info | grep 'Default Sink' | cut -d' ' -f3)" | grep "Description" | cut -d'"' -f2)
+if [[ "$output" == *"sof-soundwire Speaker"* ]]; then
+    output=" "
+else
+    output="☊"
+fi
+
+printf "%s %s\n" "$bar" "$output"

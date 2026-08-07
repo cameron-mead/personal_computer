@@ -32,7 +32,7 @@ result=$(yad --title="NETWORK REGISTRATION" \
 exit_code=$?
 
 if [[ $exit_code -eq 2 ]]; then
-    /home/cameron/.scripts/network/add_network.sh    
+    /home/cameron/.scripts/settings/network/add_network.sh    
 elif [[ $exit_code -eq 0 ]]; then
     id=$(wpa_cli -i $interface add_network)
     IFS='|' read -r SSID PASSWORD <<< "$result"

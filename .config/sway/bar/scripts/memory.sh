@@ -89,5 +89,14 @@ swap_stats="$used_swap / $total_swap GiB"
 swap_available="$available_swap"
 #echo "swp $swap_bar$swap_stats  $swap_available GiB available"
 
+color='none'
 
-echo "$memory_available GiB available ($percent_memory% used)"
+if [[ $percent_memory -lt 75 ]]; then
+    color='#00ff00'
+elif [[ $percent_memory -lt 90 ]]; then
+    color='#ffff00'
+else
+    color='ff00000'
+fi
+
+echo "$memory_available GiB available (<span foreground=\"$color\">$percent_memory% usage</span>)"

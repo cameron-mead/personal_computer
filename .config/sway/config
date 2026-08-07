@@ -57,9 +57,9 @@
     bindsym $mod+$ctrl+Shift+p exec sh -c 'FILE=/home/cameron/documents/images/screenshots/$(exec sh /home/cameron/.scripts/generate_screenshot_filename.sh).png; grim "$FILE" && wl-copy < "$FILE"'
 
     # decrease screen brightness
-    bindsym $brightness_down exec brightnessctl set 10%-
+    bindsym $brightness_down exec brightnessctl set 5%-
     # increase screen brightness
-    bindsym $brightness_up exec brightnessctl set +10%
+    bindsym $brightness_up exec brightnessctl set +5%
 
     # decrease speaker/headphone volume
     bindsym $volume_down exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; exec wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 0.05-; exec pkill -SIGRTMIN+1 i3blocks
@@ -120,7 +120,7 @@
 # launcher
 
     # set launcher
-    set $menu bemenu-run
+    set $menu /home/cameron/.config/bemenu/launcher.sh
 
     # start launcher
     bindsym $mod+d exec $menu
@@ -253,7 +253,6 @@ mode "move/resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 # snap window to corner
 bindsym $mod+Shift+r floating enable, resize set 600, move position 1320 -45, move scratchpad, scratchpad show
 
@@ -318,6 +317,12 @@ bindsym $mod+Shift+r floating enable, resize set 600, move position 1320 -45, mo
     input "1267:16847:ELAN900C:00_04F3:41CF" {
         events disabled
     }
+
+    # xdg (discord screenshare)
+    exec dbus-update-activation-environment --all
+    exec /usr/libexec/xdg-desktop-portal-wlr -r
+    exec /usr/libexec/xdg-desktop-portal -r
+    
 
 
 # other stuff

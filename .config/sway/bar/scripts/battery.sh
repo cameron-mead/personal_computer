@@ -42,11 +42,11 @@ get_batt(){
     for ((i=0; i<10; i++)); do
         #Assign Color
         if [ "$i" -lt 1 ]; then
-            color="red"
+            color="#ff0000"
         elif [ "$i" -lt 4 ]; then
-            color="yellow"
+            color="#ffff00"
         else
-            color="green"
+            color="#00ff00"
         fi
         #Print Block
         if [ "$i" -lt "$bars" ];then

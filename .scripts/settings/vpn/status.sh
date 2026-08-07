@@ -5,7 +5,8 @@ sudo -v
 status=$(sudo wg show)
 
 if [[ -n $status ]]; then
-    echo $status
+    status=$(curl ifconfig.me)
+    echo "running\n$status"
 else
     echo "disabled"
 fi

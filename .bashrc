@@ -16,12 +16,12 @@ alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 
 # general
-alias c='clear'
+alias c='clear;'
 alias l='ls'
-alias q='exit'
+alias q='exit;'
 alias la='l -la'
-alias cl='c;l'
-alias cla='c;la'
+alias cl='c l'
+alias cla='c la'
 
 # mobility
 alias .='cd .'
@@ -30,14 +30,10 @@ alias ...='..;..'
 alias ....='...;..'
 alias .....='....;..'
 alias ......='.....;..'
-alias .6='......;..'
-alias .7='.6;..'
-alias .8='.7;..'
-alias .9='.8;..'
-alias ......='.6'
-alias .......='.7'
-alias ........='.8'
-alias .........='.9'
+alias .......='......;..'
+alias ........='.......;..'
+alias .........='........;..'
+alias ..........='.........;..'
 
 # git
 alias add='git add .'
@@ -71,6 +67,8 @@ alias spotify='flatpak run com.spotify.Client;exit'
 alias media='/home/cameron/.scripts/media/play_media.sh & exit'
 alias jellyfin='/home/cameron/packages/apps/JellyfinDesktop & exit'
 alias curseforge='/home/cameron/packages/apps/curseforge-latest-linux.AppImage'
+alias vps='ssh root@142.93.248.158'
+alias discord='/home/cameron/packages/apps/Discord/discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland'
 #other
 alias monty_python='/home/cameron/.scripts/silly/monty_python.sh;reset_background'
 alias fish='/home/cameron/.scripts/silly/fish.sh'
@@ -88,7 +86,9 @@ echo -ne "\e]12;lightgrey\a"
 
 #\t : time
 #\# : number
-export PS1='\n\[\e[1;32m\]@ \[\e[1;33m\]\w\e[1;32m\]\n>\[\e[0m\] '
+#export PS1='\n\[\033[01;36m\]\h\[\e[1;32m\] @ \[\e[1;33m\]\w\n\[\e[1;32m\]\$\[\e[0m\] '
+export PS1='\n\[\e[1;32m\]\h \[\e[1;33m\]\w\n\[\e[1;32m\]\$\[\e[0m\] '
+
 
 export LS_COLORS=$LS_COLORS:'di=00;37':'*.java=00;33'
 
