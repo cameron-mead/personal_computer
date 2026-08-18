@@ -37,8 +37,11 @@ available_swap=$(echo "scale=2; $available_swap / $gib" | bc)
 percent_memory=$(echo "scale=4; 100 - $available_memory / $total_memory * 100" | bc)
 percent_swap=$(echo "scale=4; 100 - $available_swap / $total_swap * 100" | bc)
 
-percent_memory=${percent_memory:0:2}        # round down to nearest percent
-percent_swap=${percent_swap:0:2}            # round down to nearest percent
+percent_memory=${percent_memory%%.*}
+percent_swap=${percent_swap%%.*}
+
+percent_memory=$(printf "%2d" "$percent_memory")
+percent_swap=$(printf "%2d" "$percent_swap")
 
 ########################
 # reformat values
@@ -96,7 +99,7 @@ if [[ $percent_memory -lt 75 ]]; then
 elif [[ $percent_memory -lt 90 ]]; then
     color='#ffff00'
 else
-    color='ff00000'
+    color='#ff0000'
 fi
 
 echo "$memory_available GiB available (<span foreground=\"$color\">$percent_memory% usage</span>)"

@@ -72,6 +72,7 @@ alias discord='/home/cameron/packages/apps/Discord/discord --enable-features=Use
 #other
 alias monty_python='/home/cameron/.scripts/silly/monty_python.sh;reset_background'
 alias fish='/home/cameron/.scripts/silly/fish.sh'
+alias look_busy='c python /home/cameron/.scripts/silly/look_busy.py'
 
 #Custom Functions
 set_background () {

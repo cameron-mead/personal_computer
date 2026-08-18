@@ -13,3 +13,9 @@ random access memory check ... remaining memory 28.6 GB
 verifying memory from address #FA1A to address #FF1A
 cd -t /home/cameron/softdev/personal/fake/super/long/path/for/the/purposes/of/file/tools/.secret/looking/dev/
 
+paskey entry [ ************ ] verifying . . . . accepted
+hardcode bios check - load verification script . . . checking [##########] 100% - SUCCESS
+THREAD OVERCLOCK WARNING    - EXCESSIVE Hertz level /// recommend reset core 2 - 5
+fan speed 1:1810rpm 2:1815rpm 3:1990rpm 4:1810rpm
+LC105CL liquid coolant temperature nominal - pressure within tolerance
+    JMP 00 00 0A 00 A2 21 9A 00 ; jump to static subroutine A109 specified in man page 14
