@@ -19,15 +19,21 @@ def get_interval():
 
 def main():
     import_lines()
-    total = 0
+    previous_line = ''
+    total_time = 0
+    total_operations = 0
     try:
         while True:
-            print(get_line())
-            interval = get_interval()
-            total += interval
-            sleep(interval)
+            line = get_line()
+            if previous_line != line:
+                previous_line = line
+                print(line)    
+                interval = get_interval()
+                total_time += interval
+                total_operations += 1
+                sleep(interval)
     except KeyboardInterrupt:
-        print('aret operand detected --> signify end of process\n\n\nprocess completed in ' + str(total) + ' seconds\nexiting . . . . .')
+        print('aret operand detected --> signify end of process\n\n\n' + str(total_operations) + ' processes completed in ' + str(total_time) + ' seconds\nexiting . . . . .')
 
 if __name__ == '__main__':
     main()

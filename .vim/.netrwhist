@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/cameron/softdev/rit/swen344/db-cwm6700/src/sql'
+let g:netrw_dirhist_7='/home/cameron/softdev/rit/swen340/activities/homework_1'
+let g:netrw_dirhist_6='/home/cameron/.vim/ftdetect'
+let g:netrw_dirhist_5='/etc/sv/vpn'
+let g:netrw_dirhist_4='/home/cameron/.git'
+let g:netrw_dirhist_3='/home/cameron/.config/pipewire/pipewire.conf.d'
+let g:netrw_dirhist_2='/home/cameron/softdev/personal/squelchdeck/docs/superpowers'
+let g:netrw_dirhist_1='/home/cameron/games/servers/minecraft/world'
+let g:netrw_dirhist_0='/home/cameron'
+let g:netrw_dirhist_9='/home/cameron/.scripts'

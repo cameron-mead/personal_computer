@@ -47,6 +47,9 @@
 
 # general keybinds
 
+    # go to screensaver
+    bindsym $mod+$volume_down exec /home/cameron/.scripts/screensaver.sh
+
     # take selection screenshot and copy to clipboard
     bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy;
     # take selection screenshot, copy to clipboard, and save to screenshots directory
@@ -116,6 +119,9 @@
     floating enable, \
     resize set 900 600, \
     move position center
+
+    for_window [app_id="fullscreen-term"] \
+    fullscreen enable
 
 # launcher
 

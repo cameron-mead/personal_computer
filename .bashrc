@@ -11,6 +11,8 @@ fi
 # path
 export PATH="$PATH:$HOME/packages/libs/flutter/bin"
 export PATH="$HOME/flutter/bin:$PATH"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
@@ -47,8 +49,11 @@ alias checkout='git checkout'
 
 
 # cubesat
-alias terrain='ssh terrain@terrain.student.rit.edu'
-alias terrain_backdoor='ssh backdoor@terrain.student.rit.edu'
+alias terrain='ssh terrain@terrain.device.rit.edu'
+alias terrain_backdoor='ssh backdoor@terrain.device.rit.edu'
+
+# ssh
+alias rpi41='ssh cwmrpi41.device.rit.edu'
 
 # void
 alias ins='sudo xbps-install -S '
@@ -69,10 +74,12 @@ alias jellyfin='/home/cameron/packages/apps/JellyfinDesktop & exit'
 alias curseforge='/home/cameron/packages/apps/curseforge-latest-linux.AppImage'
 alias vps='ssh root@142.93.248.158'
 alias discord='/home/cameron/packages/apps/Discord/discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland'
+alias stm='/home/cameron/packages/apps/st/stm32cubeide_1.19.0/stm32cubeide_wayland'
 #other
 alias monty_python='/home/cameron/.scripts/silly/monty_python.sh;reset_background'
-alias fish='/home/cameron/.scripts/silly/fish.sh'
+alias fish='/home/cameron/.scripts/silly/fish.sh;clear'
 alias look_busy='c python /home/cameron/.scripts/silly/look_busy.py'
+alias neofetch='fastfetch'
 
 #Custom Functions
 set_background () {

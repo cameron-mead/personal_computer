@@ -19,3 +19,14 @@ THREAD OVERCLOCK WARNING    - EXCESSIVE Hertz level /// recommend reset core 2 -
 fan speed 1:1810rpm 2:1815rpm 3:1990rpm 4:1810rpm
 LC105CL liquid coolant temperature nominal - pressure within tolerance
     JMP 00 00 0A 00 A2 21 9A 00 ; jump to static subroutine A109 specified in man page 14
+    #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #   #
+compiling 'catalog' from designated cfa file:/home/cameron/HIDDEN [##########] 100% COMPILED to src
+fetching 103.129.2.3 . . . . .
+fetching 100.100.191.188 . . . . .
+fetching new packet from 'http:/spinning.fish/' . . . . . . .
+load xbps package 'codeoss'
+load xbps package 'off brand pip'
+load xbps package 'zimzizeroo'
+clearing xbps cache . . . done
+escaping characters \q\w\e\r\t\y\1
+vpn_service: routing traffic through cwm-vps -> location ny   time zone est   security minimal   code bad

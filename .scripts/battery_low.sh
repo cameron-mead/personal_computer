@@ -7,6 +7,7 @@
 
 # notifies with or without percentage
 notify(){
+    /home/cameron/.scripts/beep.sh
     if [ -n "$1" ]; then
         echo $(yad --width=200 --height=100 --title="ALERT" --text="battery $1 %" --button="dismiss":0)
     else
