@@ -329,8 +329,6 @@ bindsym $mod+Shift+r floating enable, resize set 600, move position 1320 -45, mo
     exec /usr/libexec/xdg-desktop-portal-wlr -r
     exec /usr/libexec/xdg-desktop-portal -r
     
-
-
 # other stuff
 
 ### Input configuration

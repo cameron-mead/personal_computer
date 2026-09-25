@@ -74,12 +74,15 @@ alias jellyfin='/home/cameron/packages/apps/JellyfinDesktop & exit'
 alias curseforge='/home/cameron/packages/apps/curseforge-latest-linux.AppImage'
 alias vps='ssh root@142.93.248.158'
 alias discord='/home/cameron/packages/apps/Discord/discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland'
-alias stm='/home/cameron/packages/apps/st/stm32cubeide_1.19.0/stm32cubeide_wayland'
+alias code='code-oss'
 #other
 alias monty_python='/home/cameron/.scripts/silly/monty_python.sh;reset_background'
-alias fish='/home/cameron/.scripts/silly/fish.sh;clear'
+alias fish='/home/cameron/.scripts/silly/fish.sh'
+alias fishes='/home/cameron/.scripts/silly/fishes.sh'
+alias fuck='/home/cameron/.scripts/silly/fuck.sh'
 alias look_busy='c python /home/cameron/.scripts/silly/look_busy.py'
 alias neofetch='fastfetch'
+alias hello='/home/cameron/.scripts/silly/hello.sh'
 
 #Custom Functions
 set_background () {
@@ -92,10 +95,11 @@ parse_git_branch(){ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(
 echo -ne "\e[1 q"
 echo -ne "\e]12;lightgrey\a"
 
-#\t : time
-#\# : number
-#export PS1='\n\[\033[01;36m\]\h\[\e[1;32m\] @ \[\e[1;33m\]\w\n\[\e[1;32m\]\$\[\e[0m\] '
+# custom prompt
 export PS1='\n\[\e[1;32m\]\h \[\e[1;33m\]\w\n\[\e[1;32m\]\$\[\e[0m\] '
+# default prompt
+# export PS1='\u@\h \W\\$ '
+
 
 
 export LS_COLORS=$LS_COLORS:'di=00;37':'*.java=00;33'

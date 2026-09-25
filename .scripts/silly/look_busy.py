@@ -1,5 +1,6 @@
 from time import sleep
 import random
+import subprocess
 
 lines = []
 
@@ -33,7 +34,8 @@ def main():
                 total_operations += 1
                 sleep(interval)
     except KeyboardInterrupt:
-        print('aret operand detected --> signify end of process\n\n\n' + str(total_operations) + ' processes completed in ' + str(total_time) + ' seconds\nexiting . . . . .')
+        subprocess.run('clear')
+        print(str(total_operations) + ' processes completed in ' + str(total_time) + ' seconds\nexiting . . . . .')
 
 if __name__ == '__main__':
     main()

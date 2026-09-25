@@ -34,7 +34,7 @@ is_charging(){
      fi
 }
 
-battery_threshold=11
+battery_threshold=15
 is_low=0
 
 while true; do

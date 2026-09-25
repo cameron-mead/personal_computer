@@ -102,4 +102,5 @@ else
     color='#ff0000'
 fi
 
-echo "$memory_available GiB available (<span foreground=\"$color\">$percent_memory% usage</span>)"
+#echo "$memory_available GiB available (<span foreground=\"$color\">$percent_memory% usage</span>)"
+echo "$used_memory / $total_memory GiB (<span foreground=\"$color\">$percent_memory%</span>)"

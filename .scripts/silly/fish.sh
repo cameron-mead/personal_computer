@@ -1,7 +1,4 @@
 #!/bin/bash
 
-clear
-echo "$(cat ~/documents/storage/fish.txt)"
-while true; do
-    sleep 1
-done
+number=$((RANDOM % 10))
+cat "/home/cameron/documents/storage/fish/fish-$number"
