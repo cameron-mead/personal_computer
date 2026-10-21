@@ -18,12 +18,12 @@ alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 
 # general
-alias c='clear;'
+alias c='clear'
 alias l='ls'
 alias q='exit;'
 alias la='l -la'
-alias cl='c l'
-alias cla='c la'
+alias cl='c;l'
+alias cla='c;la'
 
 # mobility
 alias .='cd .'
@@ -57,7 +57,7 @@ alias rpi41='ssh cwmrpi41.device.rit.edu'
 
 # void
 alias ins='sudo xbps-install -S '
-alias sd='sudo shutdown -h now'
+alias shutdown='sudo shutdown -h now'
 alias sway_config='vim /home/cameron/.config/sway/config'
 alias ipconfig='dhcpcd -U | grep -F ifssid;dhcpcd -U | grep -F ip;'
 alias ifconfig='ipconfig'
@@ -80,9 +80,10 @@ alias monty_python='/home/cameron/.scripts/silly/monty_python.sh;reset_backgroun
 alias fish='/home/cameron/.scripts/silly/fish.sh'
 alias fishes='/home/cameron/.scripts/silly/fishes.sh'
 alias fuck='/home/cameron/.scripts/silly/fuck.sh'
-alias look_busy='c python /home/cameron/.scripts/silly/look_busy.py'
+alias look_busy='c;python /home/cameron/.scripts/silly/look_busy.py'
 alias neofetch='fastfetch'
 alias hello='/home/cameron/.scripts/silly/hello.sh'
+alias duplicate='setsid -f alacritty --working-directory "$PWD" >/dev/null 2>&1'
 
 #Custom Functions
 set_background () {

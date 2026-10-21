@@ -26,6 +26,9 @@ selection=$(yad \
   \
   "400" "memory" "400" \
     "401:400" "memory usage" "401" \
+  \
+  "500" "audio/video" "500" \
+    "501:500" "projection type" "501" \
 
   )
 
@@ -73,6 +76,14 @@ case $selection in
 "400|" | "401|")
     /home/cameron/.scripts/settings/memory/usage.sh
     ;;
+# audio video
+"500|")
+    pavucontrol
+    ;;
+"501|")
+    /home/cameron/.scripts/settings/audio-video/projection_type.sh
+    ;;
+
     
 
 esac

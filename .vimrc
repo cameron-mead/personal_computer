@@ -11,6 +11,9 @@ set history=1000
 set autoindent
 set smartindent
 set softtabstop=4
+set formatoptions-=r 
+set formatoptions-=o
+set formatoptions-=c
 colorscheme cwmidnight
 syntax on
 filetype plugin indent on

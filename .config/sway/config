@@ -64,27 +64,21 @@
     # increase screen brightness
     bindsym $brightness_up exec brightnessctl set +5%
 
-    # decrease speaker/headphone volume
+    # decrease volume
     bindsym $volume_down exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; exec wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 0.05-; exec pkill -SIGRTMIN+1 i3blocks
-    # increase speaker/headphone volume
+    # increase volume
     bindsym $volume_up exec wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; exec wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 0.05+; exec pkill -SIGRTMIN+1 i3blocks
-    # mute or unmute speaker/headphone volume
+    # mute / unmute
     bindsym $volume_mute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; exec pkill -SIGRTMIN+1 i3blocks
 
-    # get network info
-    bindsym $mod+n exec /home/cameron/.scripts/settings/network/get_network_info.sh
-    # open network configuration
-    bindsym $mod+$shift+n exec /home/cameron/.scripts/settings/network/select_network.sh
-
-    # open volume output control, and ensure it's floating
-    bindsym $mod+v exec pavucontrol 
+    # change default states of pavucontrol
     for_window [app_id="pavucontrol"] floating enable
     for_window [app_id="pavucontrol"] resize set 800 600
 
-    # manually sleep computer
+    # manually go to lock screen
     bindsym $mod+escape exec swaylock -f -c 000000
 
-    # open general settings menu
+    # open settings menu
     bindsym $mod+tab exec /home/cameron/.scripts/settings/settings.sh
 
 
@@ -138,8 +132,6 @@
 
     # open browser
     bindsym $mod+backslash exec $browser
-
-
 
 # sway management
 
@@ -221,10 +213,30 @@
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+    # projecting
+    set $laptop_screen  eDP-1
+    # hardcoded to left display port (3)
+    set $display_port_3 DP-3
 
+    # set scale
+    output DP-3 scale 2
     
+    # default workspace to laptop screen
+    workspace 1 output $laptop_screen
+    workspace 2 output $laptop_screen
+    workspace 3 output $laptop_screen
+    workspace 4 output $laptop_screen
+    workspace 5 output $laptop_screen
+    workspace 6 output $laptop_screen
+    workspace 7 output $laptop_screen
+    workspace 8 output $laptop_screen
+    workspace 9 output $laptop_screen
+    
+    # default one workspace to projector screen
+    workspace 10 output $display_port_3
+
+    # toggle between outputs
+    bindsym $mod+period exec /home/cameron/.scripts/settings/audio-video/toggle_output.sh
 
 # Scratchpad
 
