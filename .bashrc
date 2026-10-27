@@ -84,6 +84,11 @@ alias look_busy='c;python /home/cameron/.scripts/silly/look_busy.py'
 alias neofetch='fastfetch'
 alias hello='/home/cameron/.scripts/silly/hello.sh'
 alias duplicate='setsid -f alacritty --working-directory "$PWD" >/dev/null 2>&1'
+alias torrent='/home/cameron/.scripts/media/download_magnet.sh'
+# vpn
+alias vpn='/home/cameron/.scripts/settings/vpn/status.sh'
+alias vpn_up='/home/cameron/.scripts/settings/vpn/start.sh'
+alias vpn_down='/home/cameron/.scripts/settings/vpn/stop.sh'
 
 #Custom Functions
 set_background () {

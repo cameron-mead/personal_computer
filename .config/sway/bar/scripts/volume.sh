@@ -32,7 +32,7 @@ fi
 output=$(pactl list sinks | grep -A 2 "Name: $(pactl info | grep 'Default Sink' | cut -d' ' -f3)" | grep "Description" | cut -d'"' -f2)
 if [[ "$output" == *"Speaker"* ]]; then
     output=" "
-elif [[ "$output" == *"Headphones"* ]]; then
+elif [[ "$output" == *"Headphones"* || "$output" == *"Nova"* ]]; then
     output="☊"
 else
     output="♆"

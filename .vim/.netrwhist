@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/cameron/softdev/rit/swen344/archive/rest-cwm6700'
 let g:netrw_dirhist_4='/home/cameron/softdev/rit/swen344/rest-cwm6700/src/api'
 let g:netrw_dirhist_3='/home/cameron/softdev/rit/swen344/rest-cwm6700/tests/api'
 let g:netrw_dirhist_2='/etc/wireguard'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_9='/home/cameron/softdev/rit/swen344/rest-cwm6700/tests'
 let g:netrw_dirhist_8='/home/cameron/softdev/rit/swen344/rest-cwm6700/tests/api'
 let g:netrw_dirhist_7='/home/cameron/softdev/rit/swen344/rest-cwm6700/src'
 let g:netrw_dirhist_6='/home/cameron/softdev/rit/swen344/rest-cwm6700/src/db'
-let g:netrw_dirhist_5='/home/cameron/softdev/rit/swen344/archive/swen-344-04-exam-1'

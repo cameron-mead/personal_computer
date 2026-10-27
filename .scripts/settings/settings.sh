@@ -19,6 +19,7 @@ selection=$(yad \
   \
   "200" "battery" "200" \
     "201:200" "toggle charge control" "201" \
+    "202:200" "sleep on lid close" "202" \
   \
   "300" "vpn" "300" \
     "301:300" "start vpn" "301" \
@@ -56,6 +57,9 @@ case $selection in
     ;;
 "201|")
     /home/cameron/.scripts/settings/battery/toggle_charge_control.sh
+    ;;
+"202|")
+    /home/cameron/.scripts/settings/battery/sleep_on_lid_menu.sh
     ;;
 
 # vpn

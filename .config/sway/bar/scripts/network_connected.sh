@@ -17,7 +17,7 @@ target="wpa_state=COMPLETED"
 
 network=$(printf "%-20s" "$network")
 
-if [[ -n $( /home/cameron/.scripts/settings/vpn/status.sh | grep running) ]]; then
+if [[ -n $( /home/cameron/.scripts/settings/vpn/status.sh | grep endpoint) ]]; then
     vpn="🗝"
 else
     vpn="    "

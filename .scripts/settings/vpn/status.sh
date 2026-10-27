@@ -2,11 +2,10 @@
 
 sudo -v
 
-status=$(sudo wg show)
+status=$(sudo wg show | grep endpoint)
 
 if [[ -n $status ]]; then
-    status=$(curl ifconfig.me)
-    echo "running\n$status"
+    printf "$status"
 else
-    echo "disabled"
+    printf "disabled"
 fi

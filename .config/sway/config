@@ -280,7 +280,8 @@ bindsym $mod+Shift+r floating enable, resize set 600, move position 1320 -45, mo
     seat seat0 xcursor_theme Future-dark-cursors 16
     
     # proper idle behavior and login
-    bindswitch lid:on exec swaylock -f -c 000000
+    bindswitch --locked lid:on  exec /home/cameron/.config/sway/scripts/lid_closed.sh
+    bindswitch --locked lid:off exec /home/cameron/.config/sway/scripts/lid_opened.sh
 
     # edge borders
     hide_edge_borders both
