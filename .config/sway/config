@@ -81,7 +81,6 @@
     # open settings menu
     bindsym $mod+tab exec /home/cameron/.scripts/settings/settings.sh
 
-
     # alternate mouse clicks in case of loss of trackpad
         # left click   : alt + left arrow
         # right click  : alt + right arrow

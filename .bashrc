@@ -44,6 +44,7 @@ alias push='git push'
 alias pull='git pull'
 alias branch='git branch'
 alias checkout='git checkout'
+alias gitupdate='git add .; git commit -m "update"; git push;'
 
 # rit
 
